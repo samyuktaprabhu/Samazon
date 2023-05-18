@@ -2,19 +2,36 @@ import { HomePage } from "./components/HomePage";
 import { Products } from "./components/Products";
 import "./styles.css";
 import { Routes, Route, NavLink } from "react-router-dom";
+import logo from "../src/assets/logo/samazonLogo.svg";
 
 export default function App() {
   return (
     <div className="App">
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/products">Products</NavLink>
-      <NavLink to="/cart">Cart</NavLink>
-      <NavLink to="/wishlist">WishList</NavLink>
-      <NavLink to="/address">Show Address</NavLink>
-      <NavLink to="/login">Login</NavLink>
+      <header class="navbar menu">
+        <div class="logo">
+          <img src={logo} alt="Logo" />
+        </div>
+        <div>
+          <NavLink class="li" to="/">
+            Home
+          </NavLink>
+          <NavLink class="li" to="/cart">
+            Cart
+          </NavLink>
+          <NavLink class="li" to="/wishlist">
+            WishList
+          </NavLink>
+          <NavLink class="li" to="/address">
+            Show Address
+          </NavLink>
+          <NavLink class="li" to="/login">
+            Login
+          </NavLink>
+        </div>
+      </header>
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
-        <Route path="/products" element={<Products />}></Route>
+        <Route path="/products/:category" element={<Products />}></Route>
         <Route path="/cart" element={<HomePage />}></Route>
         <Route path="/wishlist" element={<HomePage />}></Route>
         <Route path="/address" element={<HomePage />}></Route>

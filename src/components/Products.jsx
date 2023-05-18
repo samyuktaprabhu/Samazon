@@ -1,18 +1,16 @@
-import { CategoryTiles } from "./common/CategoryTiles";
+import { ProductTiles } from "./common/ProductTiles";
+import { productRange } from "../assets/data/productsData";
+import { useParams } from "react-router-dom";
 
 export const Products = () => {
-  const categories = [
-    { name: "Games" },
-    { name: "Books" },
-    { name: "Home" },
-    { name: "Clothes" },
-    { name: "Phones" },
-  ];
-
+  const { category } = useParams();
+  console.log(category);
+  const products = productRange.filter((c) => c.name === category);
   return (
     <>
-      <div>Hello</div>
-      <CategoryTiles categories={categories} />
+      <div class="category-container">
+        <ProductTiles products={products} />
+      </div>
     </>
   );
 };
