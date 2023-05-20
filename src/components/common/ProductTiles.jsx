@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { ProductsContext } from "../..";
+
 export const ProductTiles = (props) => {
+  const { addToCart } = useContext(ProductsContext);
+
   return (
     <>
       {props.products[0].products.map((product) => (
@@ -9,7 +14,7 @@ export const ProductTiles = (props) => {
           <p>Price: €{product.price}</p>
           <p># of pieces available: {product.availablePieces}</p>
           <p>Rating: {product.rating} ⭐️ </p>
-          <button>Add To Cart</button>
+          <button onClick={() => addToCart(product)}>Add To Cart</button>
           <button>Add To Wishlist</button>
         </div>
       ))}

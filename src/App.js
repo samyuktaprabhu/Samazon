@@ -1,4 +1,5 @@
 import { HomePage } from "./components/HomePage";
+import { Cart } from "./components/Cart";
 import { Products } from "./components/Products";
 import "./styles.css";
 import { Routes, Route, NavLink } from "react-router-dom";
@@ -32,7 +33,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/products/:category" element={<Products />}></Route>
-        <Route path="/cart" element={<HomePage />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
         <Route path="/wishlist" element={<HomePage />}></Route>
         <Route path="/address" element={<HomePage />}></Route>
         <Route path="/login" element={<HomePage />}></Route>
