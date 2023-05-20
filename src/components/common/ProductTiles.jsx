@@ -1,23 +1,75 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ProductsContext } from "../..";
+import { SingleProduct } from "../SingleProduct";
+import { useNavigate } from "react-router-dom";
 
 export const ProductTiles = (props) => {
-  const { addToCart } = useContext(ProductsContext);
+  const navigate = useNavigate();
+  const { addToCart, addToWishlist, cartButtonText, wishListButtonText } =
+    useContext(ProductsContext);
+
+  const lowToHighSort = (a, b) => {
+    return a.price - b.price;
+  };
+
+  const highToLowSort = (a, b) => {
+    return b.price - a.price;
+  };
+
+  const handleSelectedProductCard = (product) => {
+    navigate(
+      "/products/" + product.category.toLowerCase() + "/" + product.name
+    );
+  };
 
   return (
     <>
-      {props.products[0].products.map((product) => (
-        <div class="category-tile category">
-          <img class="img" src={product.image} alt={product.name}></img>
-          <h3 class="h3">{product.name}</h3>
-          <p>{product.description}</p>
-          <p>Price: €{product.price}</p>
-          <p># of pieces available: {product.availablePieces}</p>
-          <p>Rating: {product.rating} ⭐️ </p>
-          <button onClick={() => addToCart(product)}>Add To Cart</button>
-          <button>Add To Wishlist</button>
-        </div>
-      ))}
+      <div className="product-grid">
+        {props.products
+          .filter((product) => product.rating >= props.rating)
+          .sort(
+            props.sortType === "low-to-high" ? lowToHighSort : highToLowSort
+          )
+          .map((product) => (
+            <>
+              <div
+                className="product-tile product"
+                key={product.id}
+                onClick={() => handleSelectedProductCard(product)}
+              >
+                <img
+                  className="img"
+                  src={product.image}
+                  alt={product.name}
+                ></img>
+                <h3 className="h3">{product.name}</h3>
+                {/* <p>{product.description}</p> */}
+                <p>Price: €{product.price}</p>
+                <p># of pieces available: {product.availablePieces}</p>
+                <p>Rating: {product.rating} ⭐️ </p>
+              </div>
+              <button
+                onClick={() =>
+                  cartButtonText === "Add to Cart"
+                    ? addToCart(product)
+                    : navigate("/cart")
+                }
+              >
+                {cartButtonText}
+              </button>
+              <br></br>
+              <button
+                onClick={() =>
+                  wishListButtonText === "Add to Wishlist"
+                    ? addToWishlist(product)
+                    : navigate("/wishlist")
+                }
+              >
+                {wishListButtonText}
+              </button>
+            </>
+          ))}
+      </div>
     </>
   );
 };

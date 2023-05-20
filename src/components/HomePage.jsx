@@ -19,7 +19,7 @@ export const HomePage = () => {
   return (
     <>
       <h1>Categories</h1>
-      <div class="category-container">
+      <div className="category-container">
         <CategoryTiles categories={categories} />
       </div>
     </>

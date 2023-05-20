@@ -12,8 +12,9 @@
 }
 
 .category {
-  background-color: #ddf4ff;
   border-radius: 55px;
+  border: 1px solid black;
+  background-color: white;
   padding: 20px;
   text-align: center;
 }
@@ -25,8 +26,9 @@
   align-items: center;
   justify-content: center;
   width: 300px;
-  height: 300px;
-  background-color: #ddf4ff;
+  height: 250px;
+  border: "1px solid black";
+  background-color: white;
   border-radius: 5px;
   margin: 10px;
   cursor: pointer;
@@ -47,12 +49,66 @@
 
 /* Category tile hover effect */
 .category-tile:hover {
-  background-color: #add8e6;
+  background-color: #f2f2f2;
 }
 
 /* Category tile selected effect */
 .category-tile.selected {
-  background-color: #add8e6;
+  background-color: #f2f2f2;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5%;
+  max-width: 100%;
+}
+
+.product {
+  border-radius: 55px;
+  border: 1px solid black;
+  background-color: white;
+  padding: 20px;
+  overflow: auto;
+  text-align: center;
+}
+
+/* product tile container */
+.product-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 300px;
+  border: "1px solid black";
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* product tile image */
+.product-tile img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+/* product tile title */
+.product-tile h3 {
+  font-size: 16px;
+  text-align: center;
+}
+
+/* product tile hover effect */
+.product-tile:hover {
+  background-color: #f2f2f2;
+}
+
+/* product tile selected effect */
+.product-tile.selected {
+  background-color: #f2f2f2;
 }
 
 .navbar {
@@ -89,4 +145,104 @@
   color: white;
   text-decoration: none;
   padding: 5px;
+}
+
+.wishlist-card-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wishlist-card {
+  width: 80%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.wishlist-card-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.wishlist-card-name {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.wishlist-card-description {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.wishlist-card-price {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5%;
+}
+
+.button-negative-hollow {
+  background-color: white;
+  color: #000;
+  border: 1px solid red;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.button-positive-filled {
+  background-color: green;
+  color: #fff;
+  border: 1px solid green;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.button-negative-filled {
+  background-color: red;
+  color: #fff;
+  border: 1px solid red;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.button-positive-hollow {
+  background-color: white;
+  color: #fff;
+  border: 1px solid green;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.button-black {
+  background-color: black;
+  color: #fff;
+  border: 1px solid black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.button-white {
+  background-color: white;
+  color: #000;
+  border: 1px solid black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 1rem;
 }
