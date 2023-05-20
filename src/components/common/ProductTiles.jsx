@@ -7,7 +7,7 @@ export const ProductTiles = (props) => {
           <h3 class="h3">{product.name}</h3>
           <p>{product.description}</p>
           <p>Price: €{product.price}</p>
-          <p># of pieces available: €{product.availablePieces}</p>
+          <p># of pieces available: {product.availablePieces}</p>
           <p>Rating: {product.rating} ⭐️ </p>
           <button>Add To Cart</button>
           <button>Add To Wishlist</button>
