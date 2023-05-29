@@ -1,6 +1,5 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ProductsContext } from "../..";
-import { SingleProduct } from "../SingleProduct";
 import { useNavigate } from "react-router-dom";
 
 export const ProductTiles = (props) => {
@@ -47,26 +46,28 @@ export const ProductTiles = (props) => {
                 <p>Price: €{product.price}</p>
                 <p># of pieces available: {product.availablePieces}</p>
                 <p>Rating: {product.rating} ⭐️ </p>
+
+                <button
+                  onClick={() =>
+                    cartButtonText === "Add to Cart"
+                      ? addToCart(product)
+                      : navigate("/cart")
+                  }
+                >
+                  {cartButtonText}
+                </button>
+                <br></br>
+                <button
+                  className="z-20"
+                  onClick={() =>
+                    wishListButtonText === "Add to Wishlist"
+                      ? addToWishlist(product)
+                      : navigate("/wishlist")
+                  }
+                >
+                  {wishListButtonText}
+                </button>
               </div>
-              <button
-                onClick={() =>
-                  cartButtonText === "Add to Cart"
-                    ? addToCart(product)
-                    : navigate("/cart")
-                }
-              >
-                {cartButtonText}
-              </button>
-              <br></br>
-              <button
-                onClick={() =>
-                  wishListButtonText === "Add to Wishlist"
-                    ? addToWishlist(product)
-                    : navigate("/wishlist")
-                }
-              >
-                {wishListButtonText}
-              </button>
             </>
           ))}
       </div>

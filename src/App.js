@@ -6,6 +6,9 @@ import { SingleProduct } from "./components/SingleProduct";
 import "./styles.css";
 import { Routes, Route, NavLink } from "react-router-dom";
 import logo from "../src/assets/logo/samazonLogo.svg";
+import { LoginPage } from "./components/LoginPage";
+import { LogOut } from "./components/LogoutPage";
+import { Signup } from "./components/Signup";
 
 export default function App() {
   return (
@@ -30,6 +33,9 @@ export default function App() {
           <NavLink className="li" to="/login">
             Login
           </NavLink>
+          <NavLink className="li" to="/logout">
+            Logout
+          </NavLink>
         </div>
       </header>
       <Routes>
@@ -42,7 +48,9 @@ export default function App() {
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/wishlist" element={<Wishlist />}></Route>
         <Route path="/address" element={<HomePage />}></Route>
-        <Route path="/login" element={<HomePage />}></Route>
+        <Route path="/login" element={<LoginPage />}></Route>
+        <Route path="/logout" element={<LogOut />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
       </Routes>
     </div>
   );
